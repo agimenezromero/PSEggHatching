@@ -16,7 +16,7 @@ apply_model <- function(input_filename, output_filename, T_column, Date_column, 
   library(dplyr)
   
   #Load data
-  data = read.csv2^(input_filename)
+  data = read.csv2(input_filename)
   
   #Ensure proper type for dates
   data$MYDATE <- as.Date(strptime(data[[Date_column]], format=date_format))
