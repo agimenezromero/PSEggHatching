@@ -16,20 +16,21 @@ apply_model <- function(input_filename, output_filename, T_column, Date_column, 
   library(dplyr)
   
   #Load data
-  data = read.csv(input_filename)
+  data = read.csv2^(input_filename)
   
   #Ensure proper type for dates
-  data$Date <- as.Date(strptime(data[[Date_column]], format=date_format))
+  data$MYDATE <- as.Date(strptime(data[[Date_column]], format=date_format))
+  data$MYTEMPERATURE <- as.numeric(data[[T_column]])
   
   #Order properly
-  data <- arrange(data, Date)
+  data <- arrange(data, MYDATE)
   
   #Compute the contribution to the GDD of each hour
-  data$GDD <- as.vector(sapply(data[[T_column]], PS_GDD))
+  data$GDD <- as.vector(sapply(data$MYTEMPERATURE, PS_GDD))
   
   #Compute the GDD
   df <- data %>% 
-    group_by(Date) %>% 
+    group_by(MYDATE) %>% 
     summarize(GDD = mean(GDD))
   
   #Compute the accumulation of GDD from first to last day
