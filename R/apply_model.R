@@ -52,10 +52,10 @@ apply_model <- function(input_filename, output_filename, T_column, Date_column, 
   } else {
     
     if (is.na(second_treatment_North)){
-      sprintf("First treatment should be applied on %s and second is still not needed", first_treatment_North)
+      print(sprintf("First treatment should be applied on %s and second is still not needed", first_treatment_North))
     } else{
       
-      sprintf("First treatment should be applied on %s and second one on %s", first_treatment_North, second_treatment_North)
+      print(sprintf("First treatment should be applied on %s and second one on %s", first_treatment_North, second_treatment_North))
       
     }
       
@@ -68,10 +68,10 @@ apply_model <- function(input_filename, output_filename, T_column, Date_column, 
   } else {
     
     if (is.na(second_treatment_South)){
-      sprintf("First treatment should be applied on %s and second is still not needed", first_treatment_South)
+      print(sprintf("First treatment should be applied on %s and second is still not needed", first_treatment_South))
     } else{
       
-      sprintf("First treatment should be applied on %s and second one on %s", first_treatment_South, second_treatment_South)
+      print(sprintf("First treatment should be applied on %s and second one on %s", first_treatment_South, second_treatment_South))
       
     }
     
