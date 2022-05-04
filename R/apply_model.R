@@ -39,6 +39,44 @@ apply_model <- function(input_filename, output_filename, T_column, Date_column, 
   #Compute the cummulative hatching probability
   df$Hatching_prob = PS_hatching_probability(df$GDD_cum)
   
+  first_treatment_North <- df$MYDATE[which(df$Hatching_prob > 0.4)][1]
+  second_treatment_North <- df$MYDATE[which(df$Hatching_prob > 0.9)][1]
+  
+  first_treatment_South <- df$MYDATE[which(df$Hatching_prob > 0.35)][1]
+  second_treatment_South <- df$MYDATE[which(df$Hatching_prob > 0.8)][1]
+  
+  print("################### Northern Spain (latitudes > 40ºN) ###################")
+  
+  if (is.na(first_treatment_North)){
+    print("No treatments needed yet")
+  } else {
+    
+    if (is.na(second_treatment_North)){
+      sprintf("First treatment should be applied on %s and second is still not needed", first_treatment_North)
+    } else{
+      
+      sprintf("First treatment should be applied on %s and second one on %s", first_treatment_North, second_treatment_North)
+      
+    }
+      
+  }
+  
+  print("################### Southern Spain (latitudes < 40ºN) ###################")
+  
+  if (is.na(first_treatment_South)){
+    print("No treatments needed yet")
+  } else {
+    
+    if (is.na(second_treatment_South)){
+      sprintf("First treatment should be applied on %s and second is still not needed", first_treatment_South)
+    } else{
+      
+      sprintf("First treatment should be applied on %s and second one on %s", first_treatment_South, second_treatment_South)
+      
+    }
+    
+  }
+  
   if (write_output==TRUE) {
     
     write.csv(df, output_filename)
