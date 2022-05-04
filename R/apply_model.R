@@ -61,6 +61,7 @@ apply_model <- function(input_filename, output_filename, T_column, Date_column, 
       
   }
   
+  print("")
   print("################### Southern Spain (latitudes < 40ºN) ###################")
   
   if (is.na(first_treatment_South)){
