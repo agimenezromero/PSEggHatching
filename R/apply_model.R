@@ -45,34 +45,35 @@ apply_model <- function(input_filename, output_filename, T_column, Date_column, 
   first_treatment_South <- df$MYDATE[which(df$Hatching_prob > 0.35)][1]
   second_treatment_South <- df$MYDATE[which(df$Hatching_prob > 0.8)][1]
   
-  print("################### Northern Spain (latitudes > 40ºN) ###################")
+  cat("\nDISCLAIMER: The results below depend on the oviposition date considered, which is assumed to be the first date on the input dataset. Our model suggests the use of 15/10 for Northern Spain (latitudes above 40º N) and 20/11 for Southern Spain (latitudes below 40º N). \n")
+  
+  cat("\n################### Northern Spain (latitudes > 40º N) ###################\n\n")
   
   if (is.na(first_treatment_North)){
     print("No treatments needed yet")
   } else {
     
     if (is.na(second_treatment_North)){
-      print(sprintf("First treatment should be applied on %s and second is still not needed", first_treatment_North))
+      cat(sprintf("\tFirst treatment should be applied on %s and second is still not needed", first_treatment_North))
     } else{
       
-      print(sprintf("First treatment should be applied on %s and second one on %s", first_treatment_North, second_treatment_North))
+      cat(sprintf("\tFirst treatment should be applied on %s and second one on %s", first_treatment_North, second_treatment_North))
       
     }
       
   }
   
-  print("")
-  print("################### Southern Spain (latitudes < 40ºN) ###################")
+  cat("\n\n################### Southern Spain (latitudes < 40º N) ###################\n\n")
   
   if (is.na(first_treatment_South)){
     print("No treatments needed yet")
   } else {
     
     if (is.na(second_treatment_South)){
-      print(sprintf("First treatment should be applied on %s and second is still not needed", first_treatment_South))
+      cat(sprintf("\tFirst treatment should be applied on %s and second is still not needed", first_treatment_South))
     } else{
       
-      print(sprintf("First treatment should be applied on %s and second one on %s", first_treatment_South, second_treatment_South))
+      cat(sprintf("\tFirst treatment should be applied on %s and second one on %s ", first_treatment_South, second_treatment_South))
       
     }
     
