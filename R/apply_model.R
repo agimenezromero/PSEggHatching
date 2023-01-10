@@ -18,6 +18,10 @@ apply_model <- function(input_filename, output_filename, T_column, Date_column, 
   #Load data
   data = read.csv2(input_filename)
   
+  if (ncol(data) < 2){
+    data = read.csv(input_filename)
+  }
+  
   #Ensure proper type for dates
   data$MYDATE <- as.Date(strptime(data[[Date_column]], format=date_format))
   data$MYTEMPERATURE <- as.numeric(data[[T_column]])
