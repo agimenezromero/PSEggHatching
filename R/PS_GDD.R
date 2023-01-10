@@ -10,8 +10,8 @@
 PS_GDD <- function(T){
   
   T_base=9.2
-  T_opt=24.1
-  T_max=35.9
+  T_opt=23.4
+  T_max=34.2
   
   m = - (T_opt - T_base) / (T_max - T_opt)
   n = -m * T_max

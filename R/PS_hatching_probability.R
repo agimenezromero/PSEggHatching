@@ -9,9 +9,9 @@
 
 PS_hatching_probability <- function(GDD){
   
-  C=249.55
-  k=0.0256
+  l=164.86
+  k=4.34
   
-  return(1/(1+exp(-k*(GDD-C))))
+  return(1-exp(-(GDD/l)^k))
   
 }
