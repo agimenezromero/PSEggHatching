@@ -49,7 +49,7 @@ apply_model <- function(input_filename, output_filename, T_column, Date_column, 
   first_treatment_South <- df$MYDATE[which(df$Hatching_prob > 0.35)][1]
   second_treatment_South <- df$MYDATE[which(df$Hatching_prob > 0.8)][1]
   
-  cat("\nDISCLAIMER: The results below depend on the oviposition date considered, which is assumed to be the first date on the input dataset. Our model suggests the use of 15/10 for Northern Spain (latitudes above 40º N) and 20/11 for Southern Spain (latitudes below 40º N). \n")
+  cat("\nDISCLAIMER: The results below depend on the starting date of GDD accumulation considered, which is assumed to be the first date on the input dataset. Our work suggests the use of 15/12. \n")
   
   cat("\n################### Northern Spain (latitudes > 40º N) ###################\n\n")
   
